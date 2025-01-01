@@ -1,7 +1,11 @@
 package cgc;
 
 import cgc.models.BenchmarkData;
+import cgc.models.Format;
+import cgc.models.LookupData;
+import cgc.models.LookupResult;
 import cgc.models.VintageData;
+import cgc.utilities.StringFormatter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -9,6 +13,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -64,4 +69,19 @@ public class CensusGeocodingClient {
         return OBJECT_MAPPER.readValue(responseJson, VintageData.class);
     }
 
+    public LookupResult getLookupResult(String address, String benchMarkId, Format format) throws ExecutionException, InterruptedException, JsonProcessingException {
+        String requestUrl = BASE_URL + "/locations/onelineaddress?address="
+                + StringFormatter.formatString(address)
+                + "&benchmark=" + benchMarkId
+                + "&format=" + format.toString().toLowerCase(Locale.ROOT);
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create(requestUrl))
+                .header("User-Agent", "census-geocoding-java")
+                .GET()
+                .build();
+
+        CompletableFuture<HttpResponse<String>> httpResponse = httpClient.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString());
+        String responseJson = httpResponse.thenApply(HttpResponse::body).get();
+        return OBJECT_MAPPER.readValue(responseJson, LookupResult.class);
+    }
 }
