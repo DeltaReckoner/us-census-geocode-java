@@ -1,4 +1,4 @@
-package cgc.models;
+package cgc.models.response;
 
 /**
  * A class to hold data for {@link Vintage} objects

@@ -1,4 +1,4 @@
-package cgc.models;
+package cgc.models.response;
 
 public class Match {
     public TigerLine tigerLine;

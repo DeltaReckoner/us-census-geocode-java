@@ -1,4 +1,4 @@
-package cgc.models;
+package cgc.models.response;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

@@ -1,4 +1,4 @@
-package cgc.models;
+package cgc.models.response;
 
 /**
  * Data for the locator version to be searched
