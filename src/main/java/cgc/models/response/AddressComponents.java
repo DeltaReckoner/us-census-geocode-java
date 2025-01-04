@@ -1,5 +1,7 @@
 package cgc.models.response;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 /**
  * The data that makes up an address match
  */
@@ -52,4 +54,9 @@ public class AddressComponents {
      * The prefix qualifier
      */
     public String preQualifier;
+    /**
+     * The urbanization descriptor
+     */
+    @JsonAlias("urb")
+    public String urbanization;
 }

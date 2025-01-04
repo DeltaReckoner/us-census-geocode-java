@@ -9,7 +9,7 @@ public class LookupRequest {
     private String street;
     private String city;
     private String state;
-    private Integer zipCode;
+    private String zipCode;
     private String urbanization;
     private Integer municipio;
     private String benchmarkId;
@@ -40,9 +40,9 @@ public class LookupRequest {
 
     /**
      * Gets the zip code used in the request
-     * @return {@link Integer}
+     * @return {@link String}
      */
-    public Integer getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
@@ -85,7 +85,7 @@ public class LookupRequest {
         private String street;
         private String city;
         private String state;
-        private Integer zipCode;
+        private String zipCode;
         private String urbanization;
         private Integer municipio;
         private String benchmarkId;
@@ -125,7 +125,7 @@ public class LookupRequest {
          * @param zipCode {@link String}
          * @return {@link LookupRequestBuilder}
          */
-        public LookupRequestBuilder setZipCode(Integer zipCode) {
+        public LookupRequestBuilder setZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
         }

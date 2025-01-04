@@ -166,14 +166,14 @@ class CensusGeocodingClientTest {
 
     @Test
     void testGetPuertoRicoLookupDataFromRequestObject() {
-        /*try {
+        try {
             BenchmarkData benchmarkData = censusGeocodingClient.getBenchmarkData();
 
             LookupRequest lookupRequest = new LookupRequest.LookupRequestBuilder()
-                    .setStreet("Flamboyan")
-                    .setCity("Jaguas")
+                    .setStreet("9 Calle")
+                    .setCity("Morovis")
                     .setState("PR")
-                    .setZipCode("00638")
+                    .setZipCode("00687")
                     .setBenchmarkId(benchmarkData.benchmarks[0].id)
                     .build();
 
@@ -185,12 +185,12 @@ class CensusGeocodingClientTest {
             Assertions.assertNotNull(lookupResult.result.addressMatches[0].coordinates);
             Assertions.assertNotNull(lookupResult.result.input);
             Assertions.assertNotNull(lookupResult.result.input.lookupAddress);
-            Assertions.assertEquals("4600 Silver Hill Rd", lookupResult.result.input.lookupAddress.street);
-            Assertions.assertEquals("Washington", lookupResult.result.input.lookupAddress.city);
+            Assertions.assertEquals("9 Calle", lookupResult.result.input.lookupAddress.street);
+            Assertions.assertEquals("Morovis", lookupResult.result.input.lookupAddress.city);
             Assertions.assertEquals("PR", lookupResult.result.input.lookupAddress.state);
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
-        }*/
+        }
     }
 
     @Test
