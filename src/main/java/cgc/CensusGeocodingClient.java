@@ -28,10 +28,9 @@ public class CensusGeocodingClient {
 
     /**
      * Gets the list of benchmarks maintained by the US Census
-     * @return {@link BenchmarkData} Benchmark data
-     * @throws ExecutionException
-     * @throws InterruptedException
-     * @throws JsonProcessingException
+     * @throws ExecutionException If there are any issues with running the request.
+     * @throws InterruptedException If there are any interruptions with the request being processed.
+     * @throws JsonProcessingException If there are any issues converting the Json response to a {@link BenchmarkData}.
      */
     public BenchmarkData getBenchmarkData() throws ExecutionException, InterruptedException, JsonProcessingException {
         String requestUrl = BASE_URL + "/benchmarks";
@@ -49,9 +48,9 @@ public class CensusGeocodingClient {
     /**
      * Gets the list of vintages of geography maintained by the US Census
      * @return {@link VintageData} Vintage of geography data
-     * @throws ExecutionException
-     * @throws InterruptedException
-     * @throws JsonProcessingException
+     * @throws ExecutionException If there are any issues with running the request.
+     * @throws InterruptedException If there are any interruptions with the request being processed.
+     * @throws JsonProcessingException If there are any issues converting the Json response to a {@link VintageData}.
      */
     public VintageData getVintageData(String benchmarkId) throws JsonProcessingException, ExecutionException, InterruptedException {
         String requestUrl = BASE_URL + "/vintages?benchmark=" + benchmarkId;
